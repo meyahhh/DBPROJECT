@@ -41,6 +41,7 @@ namespace DBPROJECT
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsTop.SuspendLayout();
             this.tsBottom.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -136,6 +137,7 @@ namespace DBPROJECT
             // systemToolStripMenuItem
             // 
             this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.changePasswordToolStripMenuItem});
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
             this.systemToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
@@ -148,6 +150,14 @@ namespace DBPROJECT
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "User Profile";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // frmMain
             // 
@@ -189,6 +199,7 @@ namespace DBPROJECT
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem systemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 
