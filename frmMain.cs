@@ -71,19 +71,25 @@ namespace DBPROJECT
         {
             ChangePasswordfrm = new frmChangePassword(Globals.gIdUser, Globals.gLoginName);
             ChangePasswordfrm.FormClosed += ChangePasswordfrm_FormClosed;
-
-            ChangePasswordfrm.ShowDialog();
+            //ChangePasswordfrm.MdiParent = this;
+            ChangePasswordfrm.Show();
         }
 
-
         private frmUserProfile UserProfilefrm;
+
+
+        private void UserProfilefrm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            UserProfilefrm.Dispose();
+        }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             UserProfilefrm = new frmUserProfile(Globals.gIdUser, Globals.gLoginName);
             UserProfilefrm.FormClosed += UserProfilefrm_FormClosed;
-
-            UserProfilefrm.ShowDialog();
+            UserProfilefrm.MdiParent = this;
+            UserProfilefrm.Show();
         }
     }
     }
-}
+

@@ -1,7 +1,7 @@
 ﻿
 namespace DBPROJECT
 {
-    partial class UserProfilefrm
+    partial class frmUserProfile
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace DBPROJECT
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserProfilefrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserProfile));
             this.pictBoxUser = new System.Windows.Forms.PictureBox();
             this.btnLoadPhoto = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -62,6 +62,7 @@ namespace DBPROJECT
             // 
             // btnLoadPhoto
             // 
+            this.btnLoadPhoto.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadPhoto.Image")));
             this.btnLoadPhoto.Location = new System.Drawing.Point(99, 266);
             this.btnLoadPhoto.Name = "btnLoadPhoto";
             this.btnLoadPhoto.Size = new System.Drawing.Size(131, 24);
@@ -69,15 +70,16 @@ namespace DBPROJECT
             this.btnLoadPhoto.Text = "Load New Photo";
             this.btnLoadPhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLoadPhoto.UseVisualStyleBackColor = true;
-            this.btnLoadPhoto.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnClear
             // 
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.Location = new System.Drawing.Point(232, 266);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(131, 24);
             this.btnClear.TabIndex = 2;
             this.btnClear.Text = "Clear Photo";
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -97,7 +99,6 @@ namespace DBPROJECT
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Email";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -116,7 +117,6 @@ namespace DBPROJECT
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "SMTP Port";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -178,29 +178,36 @@ namespace DBPROJECT
             // 
             // btnChangePwd
             // 
+            this.btnChangePwd.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePwd.Image")));
             this.btnChangePwd.Location = new System.Drawing.Point(42, 487);
             this.btnChangePwd.Name = "btnChangePwd";
             this.btnChangePwd.Size = new System.Drawing.Size(152, 23);
             this.btnChangePwd.TabIndex = 15;
             this.btnChangePwd.Text = "Change User Password";
+            this.btnChangePwd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnChangePwd.UseVisualStyleBackColor = true;
+            this.btnChangePwd.Click += new System.EventHandler(this.btnChangePwd_Click);
             // 
             // btnRefresh
             // 
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.Location = new System.Drawing.Point(311, 487);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(90, 23);
             this.btnRefresh.TabIndex = 16;
             this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(215, 487);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 23);
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // pkrBirthdate
@@ -213,7 +220,7 @@ namespace DBPROJECT
             this.pkrBirthdate.TabIndex = 18;
             this.pkrBirthdate.Value = new System.DateTime(2024, 2, 19, 13, 32, 49, 0);
             // 
-            // UserProfilefrm
+            // frmUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -237,7 +244,8 @@ namespace DBPROJECT
             this.Controls.Add(this.btnLoadPhoto);
             this.Controls.Add(this.pictBoxUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "UserProfilefrm";
+            this.Name = "frmUserProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Profile";
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxUser)).EndInit();
             this.ResumeLayout(false);
