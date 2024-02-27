@@ -70,6 +70,7 @@ namespace DBPROJECT
             this.btnLoadPhoto.Text = "Load New Photo";
             this.btnLoadPhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLoadPhoto.UseVisualStyleBackColor = true;
+            this.btnLoadPhoto.Click += new System.EventHandler(this.btnLoadPhoto_Click);
             // 
             // btnClear
             // 
@@ -81,6 +82,7 @@ namespace DBPROJECT
             this.btnClear.Text = "Clear Photo";
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label1
             // 
@@ -140,8 +142,8 @@ namespace DBPROJECT
             // 
             this.cbxGender.FormattingEnabled = true;
             this.cbxGender.Items.AddRange(new object[] {
-            "Female",
-            "Male"});
+            "FEMALE",
+            "MALE"});
             this.cbxGender.Location = new System.Drawing.Point(129, 439);
             this.cbxGender.Name = "cbxGender";
             this.cbxGender.Size = new System.Drawing.Size(121, 21);
@@ -247,6 +249,7 @@ namespace DBPROJECT
             this.Name = "frmUserProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Profile";
+            this.Load += new System.EventHandler(this.frmUserProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
