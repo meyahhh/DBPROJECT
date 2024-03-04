@@ -148,6 +148,8 @@ namespace DBPROJECT
             this.cbxGender.Name = "cbxGender";
             this.cbxGender.Size = new System.Drawing.Size(121, 21);
             this.cbxGender.TabIndex = 9;
+            this.cbxGender.TextChanged += new System.EventHandler(this.cmbEnableSave);
+            this.cbxGender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnableSaveButton);
             // 
             // txtSMTPHOST
             // 
@@ -155,6 +157,7 @@ namespace DBPROJECT
             this.txtSMTPHOST.Name = "txtSMTPHOST";
             this.txtSMTPHOST.Size = new System.Drawing.Size(272, 20);
             this.txtSMTPHOST.TabIndex = 11;
+            this.txtSMTPHOST.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnableSaveButton);
             // 
             // txtLoginName
             // 
@@ -170,6 +173,7 @@ namespace DBPROJECT
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(272, 20);
             this.txtEmail.TabIndex = 13;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnableSaveButton);
             // 
             // txtSMTPport
             // 
@@ -177,6 +181,7 @@ namespace DBPROJECT
             this.txtSMTPport.Name = "txtSMTPport";
             this.txtSMTPport.Size = new System.Drawing.Size(121, 20);
             this.txtSMTPport.TabIndex = 14;
+            this.txtSMTPport.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnableSaveButton);
             // 
             // btnChangePwd
             // 
@@ -200,6 +205,7 @@ namespace DBPROJECT
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnSave
             // 
@@ -211,6 +217,7 @@ namespace DBPROJECT
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pkrBirthdate
             // 
@@ -221,6 +228,7 @@ namespace DBPROJECT
             this.pkrBirthdate.Size = new System.Drawing.Size(121, 20);
             this.pkrBirthdate.TabIndex = 18;
             this.pkrBirthdate.Value = new System.DateTime(2024, 2, 19, 13, 32, 49, 0);
+            this.pkrBirthdate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnableSaveButton);
             // 
             // frmUserProfile
             // 
@@ -249,6 +257,7 @@ namespace DBPROJECT
             this.Name = "frmUserProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Profile";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUserProfile_FormClosing);
             this.Load += new System.EventHandler(this.frmUserProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxUser)).EndInit();
             this.ResumeLayout(false);
