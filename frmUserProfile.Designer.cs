@@ -30,7 +30,6 @@ namespace DBPROJECT
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserProfile));
-            this.pictBoxUser = new System.Windows.Forms.PictureBox();
             this.btnLoadPhoto = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,17 +47,9 @@ namespace DBPROJECT
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.pkrBirthdate = new System.Windows.Forms.DateTimePicker();
+            this.pictBoxUser = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxUser)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictBoxUser
-            // 
-            this.pictBoxUser.Image = ((System.Drawing.Image)(resources.GetObject("pictBoxUser.Image")));
-            this.pictBoxUser.Location = new System.Drawing.Point(99, 12);
-            this.pictBoxUser.Name = "pictBoxUser";
-            this.pictBoxUser.Size = new System.Drawing.Size(264, 248);
-            this.pictBoxUser.TabIndex = 0;
-            this.pictBoxUser.TabStop = false;
             // 
             // btnLoadPhoto
             // 
@@ -230,6 +221,14 @@ namespace DBPROJECT
             this.pkrBirthdate.Value = new System.DateTime(2024, 2, 19, 13, 32, 49, 0);
             this.pkrBirthdate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnableSaveButton);
             // 
+            // pictBoxUser
+            // 
+            this.pictBoxUser.Location = new System.Drawing.Point(99, 12);
+            this.pictBoxUser.Name = "pictBoxUser";
+            this.pictBoxUser.Size = new System.Drawing.Size(264, 248);
+            this.pictBoxUser.TabIndex = 0;
+            this.pictBoxUser.TabStop = false;
+            // 
             // frmUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,8 +265,6 @@ namespace DBPROJECT
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictBoxUser;
         private System.Windows.Forms.Button btnLoadPhoto;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label1;
@@ -285,5 +282,6 @@ namespace DBPROJECT
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DateTimePicker pkrBirthdate;
+        private System.Windows.Forms.PictureBox pictBoxUser;
     }
 }
