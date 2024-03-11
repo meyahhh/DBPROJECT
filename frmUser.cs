@@ -70,7 +70,7 @@ namespace DBPROJECT
             this.dgvMain.Columns["gender"].HeaderText = "Gender";
             this.dgvMain.Columns["birthdate"].HeaderText = "Birthdate";
 
-
+            
             //mustchangepwd,email,smtphost,smtpport,gender,birthdate
 
 
