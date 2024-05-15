@@ -16,6 +16,7 @@ namespace DBPROJECT
     {
         long iduser;
         String loginname;
+
         public frmUserProfile(long liduser, String lname)
         {
             InitializeComponent();
@@ -25,19 +26,16 @@ namespace DBPROJECT
 
         private frmChangePassword ChangePasswordfrm;
 
-
         private void ChangePasswordfrm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ChangePasswordfrm = null;
+            ChangePasswordfrm.Dispose();
         }
-
-
         private void btnChangePwd_Click(object sender, EventArgs e)
         {
             ChangePasswordfrm = new frmChangePassword(this.iduser, this.loginname);
             ChangePasswordfrm.FormClosed += ChangePasswordfrm_FormClosed;
             //ChangePasswordfrm.MdiParent = this;
-            ChangePasswordfrm.ShowDialog();
+            ChangePasswordfrm.ShowDialog(); //show a modal
         }
 
         private void frmUserProfile_LoadUserData()
@@ -107,6 +105,7 @@ namespace DBPROJECT
             this.frmUserProfile_LoadUserData();
             this.frmUserProfile_GetPhotofromField();
             this.btnSave.Enabled = false;
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -122,11 +121,10 @@ namespace DBPROJECT
                     cmd.ExecuteNonQuery();
                     this.pictBoxUser.Image = null;
                 }
-                    csMessageBox.Show("User Photo Erased", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                csMessageBox.Show("User Photo Erased.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void SavePhotoField()
+        private void SavePhototoField()
         {
             MemoryStream ms = new MemoryStream();
             this.pictBoxUser.Image.Save(ms, pictBoxUser.Image.RawFormat);
@@ -134,27 +132,28 @@ namespace DBPROJECT
 
             if (Globals.glOpenSqlConn())
             {
-                String qrystr = "update users set photo=@img where id =" + Globals.gIdUser.ToString();
+                String qrystr = "update users set photo=@img where id =" +
+                    this.iduser.ToString();
 
                 SqlCommand cmd = new SqlCommand(qrystr, Globals.sqlconn);
 
-                cmd.Parameters.Add("@img", SqlDbType.Image);
+                cmd.Parameters.Add("@img", SqlDbType.Image); //MySqlDbType.Blob
                 cmd.Parameters["@img"].Value = img;
 
                 if (cmd.ExecuteNonQuery() == 1)
-                    csMessageBox.Show("New photo is saved...", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    csMessageBox.Show("New photo is saved...", "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             Globals.glCloseSqlConn();
         }
-
         private void btnLoadPhoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog openPhoto = new OpenFileDialog();
-            openPhoto.Filter = "Choose Image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.png; *.gif";
-            if(openPhoto.ShowDialog() == DialogResult.OK)
+            openPhoto.Filter = "Choose Image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
+            if (openPhoto.ShowDialog() == DialogResult.OK)
             {
                 pictBoxUser.Image = Image.FromFile(openPhoto.FileName);
-                this.SavePhotoField();
+                this.SavePhototoField();
             }
         }
 
@@ -170,8 +169,10 @@ namespace DBPROJECT
                 cmd.Parameters.AddWithValue("@lemail", this.txtEmail.Text);
                 cmd.Parameters.AddWithValue("@lsmtphost", this.txtSMTPHOST.Text);
                 cmd.Parameters.AddWithValue("@lsmtpport", this.txtSMTPport.Text);
-                cmd.Parameters.AddWithValue("@lbirthdate",Globals.glConvertBlankDate(this.pkrBirthdate.Value.ToString()));
-                cmd.Parameters.AddWithValue("@lgender", Globals.glConvertBlankGender(this.cbxGender.SelectedItem.ToString()));
+                cmd.Parameters.AddWithValue("@lbirthdate",
+                     Globals.glConvertBlankDate(this.pkrBirthdate.Value.ToString()));
+                cmd.Parameters.AddWithValue("@lgender",
+                    Globals.glConvertBlankGender(this.cbxGender.SelectedItem.ToString()));
                 cmd.ExecuteNonQuery();
             }
             Globals.glCloseSqlConn();
@@ -179,9 +180,10 @@ namespace DBPROJECT
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(this.txtLoginName.Text.Trim() == "")
+            if (this.txtLoginName.Text.Trim() == "")
             {
-                csMessageBox.Show("Please provide a valid login name,", "Empty Login Name", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                csMessageBox.Show("Please provide a valid login name.", "Empty Login Name",
+                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -196,25 +198,25 @@ namespace DBPROJECT
             this.btnSave.Enabled = true;
         }
 
-        private void cmbEnableSave(object sender, EventArgs e)
+        private void cbxGender_TextChanged(object sender, EventArgs e)
         {
             this.btnSave.Enabled = true;
         }
-
         private void frmUserProfile_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this.btnSave.Enabled)
             {
                 DialogResult dr;
 
-                dr = csMessageBox.Show("Changed not saved! Save Changes", "Please confirm.", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                dr = csMessageBox.Show("Changes not saved! Save changes", "Please confirm.", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
                 switch (dr)
                 {
                     case DialogResult.Yes:
                         if (this.txtLoginName.Text.Trim() == "")
                         {
-                            csMessageBox.Show("Please provide a valid login name.", "Empty Login Name", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            csMessageBox.Show("Please provide a valid login name.", "Empty Login Name",
+                               MessageBoxButtons.OK, MessageBoxIcon.Information);
                             e.Cancel = true;
                             this.txtLoginName.Focus();
                         }
@@ -231,11 +233,12 @@ namespace DBPROJECT
             }
         }
 
-        private void frmUserProfile_GetUser(long iduser, ref String loginName, ref String email, ref String smtphost, ref String smtpport, ref DateTime birthdate, ref String gender)
+        private void frmUserProfile_GetUser(long iduser, ref String loginName,ref String email, ref String smtphost, ref String smtpport, ref DateTime birthdate, ref String gender)
         {
+
             if (Globals.glOpenSqlConn())
             {
-                SqlCommand cmd = new SqlCommand("spGetUserProfile", Globals.sqlconn);
+                SqlCommand cmd = new SqlCommand("spGetUserProfile",Globals.sqlconn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@liduser", iduser);
 
@@ -257,8 +260,8 @@ namespace DBPROJECT
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             Globals.glCloseSqlConn();
-        }
 
+        }
         private void frmUserProfile_RefreshUser()
         {
             String uname = "", uemail = "", ugender = "MALE", usmtphost = "", usmtpport = "";

@@ -56,15 +56,13 @@ namespace DBPROJECT
 
             this.glSetSizeToDesktop();
             this.BringToFront();
-
-
         }
-        private frmChangePassword ChangePasswordfrm;
 
+        private frmChangePassword ChangePasswordfrm;
 
         private void ChangePasswordfrm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ChangePasswordfrm = null;
+            ChangePasswordfrm.Dispose();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,17 +70,16 @@ namespace DBPROJECT
             ChangePasswordfrm = new frmChangePassword(Globals.gIdUser, Globals.gLoginName);
             ChangePasswordfrm.FormClosed += ChangePasswordfrm_FormClosed;
             //ChangePasswordfrm.MdiParent = this;
-            ChangePasswordfrm.Show();
+            ChangePasswordfrm.ShowDialog();
         }
 
+        
         private frmUserProfile UserProfilefrm;
-
 
         private void UserProfilefrm_FormClosed(object sender, FormClosedEventArgs e)
         {
             UserProfilefrm.Dispose();
         }
-
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             UserProfilefrm = new frmUserProfile(Globals.gIdUser, Globals.gLoginName);
@@ -90,7 +87,6 @@ namespace DBPROJECT
             UserProfilefrm.MdiParent = this;
             UserProfilefrm.Show();
         }
-
 
         frmUser Userfrm;
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,8 +99,48 @@ namespace DBPROJECT
 
         private void Userfrm_FormClosed(object sender, EventArgs e)
         {
-            Userfrm.Dispose();
+           Userfrm.Dispose();
+        }
+
+        frmCustomers Customersfrm;
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            Customersfrm = new frmCustomers();
+            Customersfrm.FormClosed += Customersfrm_FormClosed;
+            Customersfrm.MdiParent = this;
+            Customersfrm.Show();
+        }
+
+        private void Customersfrm_FormClosed(object sender, EventArgs e)
+        {
+            Customersfrm.Dispose();
+        }
+
+        frmVendors Vendorsfrm;
+        private void btnVendors_Click(object sender, EventArgs e)
+        {
+            Vendorsfrm = new frmVendors();
+            Vendorsfrm.FormClosed += Vendorsfrm_FormClosed;
+            Vendorsfrm.MdiParent = this;
+            Vendorsfrm.Show();
+        }
+        private void Vendorsfrm_FormClosed(object sender, EventArgs e)
+        {
+            Vendorsfrm.Dispose();
+        }
+
+        frmItems Itemsfrm;
+        private void btnItems_Click(object sender, EventArgs e)
+        {
+            Itemsfrm = new frmItems();
+            Itemsfrm.FormClosed += Itemsfrm_FormClosed;
+            Itemsfrm.MdiParent = this;
+            Itemsfrm.Show();
+        }
+        private void Itemsfrm_FormClosed(object sender, EventArgs e)
+        {
+            Itemsfrm.Dispose();
         }
     }
-    }
 
+}

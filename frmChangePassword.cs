@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DBPROJECT
-
 {
     public partial class frmChangePassword : Form
     {
